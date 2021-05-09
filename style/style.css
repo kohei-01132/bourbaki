@@ -38,6 +38,8 @@
   top: 50%;
   left: 50%;
   width: 250px;
+  color: #ddd;
+  font-size: 10px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
@@ -79,8 +81,8 @@
           transform: translate(-50%, -50%);
   -webkit-box-shadow: 0px 0px 50px #ffba61;
           box-shadow: 0px 0px 50px #ffba61;
-  -webkit-animation: logolight 3s ease-out 0s;
-          animation: logolight 3s ease-out 0s;
+  -webkit-animation: logolight 2.5s ease-out 0s;
+          animation: logolight 2.5s ease-out 0s;
 }
 
 .loadinglogo-line {
@@ -98,8 +100,8 @@
 }
 
 .loadinglogo-line.move {
-  -webkit-animation: loadinglogomove 0.7s ease-out forwards;
-          animation: loadinglogomove 0.7s ease-out forwards;
+  -webkit-animation: loadinglogomove 0.5s ease-out forwards;
+          animation: loadinglogomove 0.5s ease-out forwards;
 }
 
 @-webkit-keyframes loadinglogorotate {
@@ -216,6 +218,293 @@
   }
 }
 
+.loading-anime {
+  position: fixed;
+  z-index: 1100;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading-anime-whitetop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1110;
+  width: 100vw;
+  height: 60vh;
+  background-color: #fff;
+  -webkit-transform: translate(0, -61vh);
+          transform: translate(0, -61vh);
+  -webkit-transition: all 0.3s linear 1s;
+  transition: all 0.3s linear 1s;
+}
+
+.loading-anime-whitebottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1110;
+  width: 100vw;
+  height: 60vh;
+  background-color: #fff;
+  -webkit-transform: translate(0, 60vh);
+          transform: translate(0, 60vh);
+  -webkit-transition: all 0.3s linear 1s;
+  transition: all 0.3s linear 1s;
+}
+
+.loading-anime-ink_linetop {
+  position: absolute;
+  z-index: 1120;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 150px;
+  margin: 0;
+  background-color: #333;
+  -webkit-transform: translate(-1000px, 290px) rotate(83deg);
+          transform: translate(-1000px, 290px) rotate(83deg);
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transition: all 1s ease-in 1.5s;
+  transition: all 1s ease-in 1.5s;
+}
+
+.loading-anime-ink_linebottom {
+  position: absolute;
+  z-index: 1120;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 150px;
+  margin: 0;
+  background-color: #333;
+  -webkit-transform: translate(1120px, -370px) rotate(89deg);
+          transform: translate(1120px, -370px) rotate(89deg);
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transition: all 1s ease-in 1.5s;
+  transition: all 1s ease-in 1.5s;
+}
+
+.loading-anime_ink {
+  position: relative;
+  z-index: 1130;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.loading-anime_ink_r1 {
+  position: absolute;
+  z-index: 1131;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 1.8s;
+  transition: all 0.05s linear 1.8s;
+}
+
+.loading-anime_ink_r2 {
+  position: absolute;
+  z-index: 1132;
+  top: 0;
+  right: 110px;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.1s;
+  transition: all 0.05s linear 2.1s;
+}
+
+.loading-anime_ink_r3 {
+  position: absolute;
+  z-index: 1133;
+  top: 0;
+  left: 30px;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.4s;
+  transition: all 0.05s linear 2.4s;
+}
+
+.loading-anime_ink_r4 {
+  position: absolute;
+  z-index: 1134;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.7s;
+  transition: all 0.05s linear 2.7s;
+}
+
+.loading-anime_ink_l1 {
+  position: absolute;
+  z-index: 1141;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 1.8s;
+  transition: all 0.05s linear 1.8s;
+}
+
+.loading-anime_ink_l2 {
+  position: absolute;
+  z-index: 1142;
+  bottom: 0;
+  left: 210px;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.1s;
+  transition: all 0.05s linear 2.1s;
+}
+
+.loading-anime_ink_l3 {
+  position: absolute;
+  z-index: 1143;
+  bottom: 0;
+  right: 40px;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.4s;
+  transition: all 0.05s linear 2.4s;
+}
+
+.loading-anime_ink_l4 {
+  position: absolute;
+  z-index: 1144;
+  bottom: 0;
+  right: -30px;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear 2.7s;
+  transition: all 0.05s linear 2.7s;
+}
+
+.loading-anime_ink_logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  -webkit-transition: all 0.1s linear 1.6s;
+  transition: all 0.1s linear 1.6s;
+}
+
+.loading-anime_ink_logo_img {
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/bourbakiPc.png);
+  background-position: center center;
+}
+
+@media screen and (max-width: 767px) {
+  .loading-anime_ink_logo_img {
+    background-image: url(../image/bourbakiPhone.png);
+  }
+}
+
+.loading-anime_ink_logobg {
+  position: absolute;
+  z-index: 1150;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.loading-anime_ink_logobg_set {
+  position: absolute;
+  width: 786px;
+  height: 842px;
+  display: block;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+          transform: scale(0.2, 0.2);
+  -webkit-transition: all 0.05s linear;
+  transition: all 0.05s linear;
+}
+
+.loading-anime_ink_logobg1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1151;
+  width: 100vw;
+  height: 100vh;
+  background-color: #33d1df;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  -webkit-transition-delay: 4.6s;
+          transition-delay: 4.6s;
+}
+
+.loading-anime_font {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1300;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+  -webkit-transform: translateX(101vw);
+          transform: translateX(101vw);
+  -webkit-transition: all 0.5s ease-out 6s;
+  transition: all 0.5s ease-out 6s;
+}
+
+.white-move {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.linetop-move {
+  -webkit-transform: translate(1120px, 70px) rotate(83deg);
+          transform: translate(1120px, 70px) rotate(83deg);
+}
+
+.linebottom-move {
+  -webkit-transform: translate(-1000px, -250px) rotate(89deg);
+          transform: translate(-1000px, -250px) rotate(89deg);
+}
+
+.ink-opacity {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  opacity: 1;
+}
+
+.blue-scale {
+  opacity: 1;
+}
+
 .mv {
   width: 100vw;
   height: 100vh;
@@ -236,8 +525,8 @@
     width: 100vw;
     height: 36vh;
     right: 0;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
   }
 }
 
@@ -589,6 +878,7 @@
 
 .hamMenu-main_list_text {
   display: block;
+  font-family: "Lexend Giga", sans-serif;
   font-size: 20px;
   color: white;
   text-align: center;
@@ -596,8 +886,8 @@
           transform: translateY(20px);
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
-  -webkit-transition-delay: 1.5s;
-          transition-delay: 1.5s;
+  -webkit-transition-delay: 1.7s;
+          transition-delay: 1.7s;
 }
 
 .hamMenu-returnbtn {
@@ -610,8 +900,8 @@
           transform: translateY(-40px);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  -webkit-transition-delay: 1.5s;
-          transition-delay: 1.5s;
+  -webkit-transition-delay: 1.7s;
+          transition-delay: 1.7s;
 }
 
 @media screen and (max-width: 767px) {
@@ -720,6 +1010,7 @@
           align-items: center;
   width: 150px;
   height: 30px;
+  font-family: "Lexend Giga", sans-serif;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid #000000;
   color: #000000;

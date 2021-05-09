@@ -35,6 +35,8 @@ $time: 0.5s;
     top: 50%;
     left: 50%;
     width: 250px;
+    color: #ddd;
+    font-size: 10px;
     transform: translateX(-50%);
   }
 }
@@ -63,7 +65,7 @@ $time: 0.5s;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 50px #ffba61;
-    animation: logolight 3s ease-out 0s;
+    animation: logolight 2.5s ease-out 0s;
   }
   &-line {
     position: absolute;
@@ -76,7 +78,7 @@ $time: 0.5s;
     transform: translate(0, -28px) rotate(0deg);
     transform-origin: center top;
     &.move {
-      animation: loadinglogomove 0.7s ease-out forwards;
+      animation: loadinglogomove 0.5s ease-out forwards;
     }
   }
 }
@@ -123,6 +125,232 @@ $time: 0.5s;
     box-shadow: 0px 0px 50px #ffba61;
   }
 }
+$opacitytime: 0.05s;
+
+.loading-anime {
+  position: fixed;
+  z-index: 1100;
+  width: 100vw;
+  height: 100vh;
+
+  &-whitetop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1110;
+    width: 100vw;
+    height: 60vh;
+    background-color: #fff;
+    transform: translate(0, -61vh);
+    transition: all 0.3s linear 1s;
+  }
+  &-whitebottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1110;
+    width: 100vw;
+    height: 60vh;
+    background-color: #fff;
+    transform: translate(0, 60vh);
+    transition: all 0.3s linear 1s;
+  }
+  &-ink {
+    &_linetop {
+      position: absolute;
+      z-index: 1120;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 150px;
+      margin: 0;
+      background-color: #333;
+      transform: translate(-1000px, 290px) rotate(83deg);
+      transform-origin: center top;
+      transition: all 1s ease-in 1.5s;
+    }
+    &_linebottom {
+      position: absolute;
+      z-index: 1120;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 150px;
+      margin: 0;
+      background-color: #333;
+      transform: translate(1120px, -370px) rotate(89deg);
+      transform-origin: center top;
+      transition: all 1s ease-in 1.5s;
+    }
+  }
+  &_ink {
+    // overflow: hidden;
+    position: relative;
+    z-index: 1130;
+    top: 50%;
+    left: 50%;
+    width: 1920px;
+    height: 1080px;
+    transform: translate(-50%, -50%);
+
+    &_r1 {
+      position: absolute;
+      z-index: 1131;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 1.8s;
+    }
+    &_r2 {
+      position: absolute;
+      z-index: 1132;
+      top: 0;
+      right: 110px;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.1s;
+    }
+    &_r3 {
+      position: absolute;
+      z-index: 1133;
+      top: 0;
+      left: 30px;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.4s;
+    }
+    &_r4 {
+      position: absolute;
+      z-index: 1134;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.7s;
+    }
+    &_l1 {
+      position: absolute;
+      z-index: 1141;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 1.8s;
+    }
+    &_l2 {
+      position: absolute;
+      z-index: 1142;
+      bottom: 0;
+      left: 210px;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.1s;
+    }
+    &_l3 {
+      position: absolute;
+      z-index: 1143;
+      bottom: 0;
+      right: 40px;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.4s;
+    }
+    &_l4 {
+      position: absolute;
+      z-index: 1144;
+      bottom: 0;
+      right: -30px;
+      opacity: 0;
+      transform: scale(0.2, 0.2);
+      transition: all $opacitytime linear 2.7s;
+    }
+
+    &_logo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      transition: all 0.1s linear 1.6s;
+
+      &_img {
+        width: 100%;
+        height: 100%;
+        background-image: url(../image/bourbakiPc.png);
+        background-position: center center;
+        @media screen and (max-width: 767px) {
+          background-image: url(../image/bourbakiPhone.png);
+        }
+      }
+
+      &bg {
+        position: absolute;
+        z-index: 1150;
+        top: 50%;
+        left: 50%;
+        width: 1920px;
+        height: 1080px;
+        transform: translate(-50%, -50%);
+
+        &_set {
+          position: absolute;
+          width: 786px;
+          height: 842px;
+          display: block;
+          opacity: 0;
+          transform: scale(0.2, 0.2);
+          transition: all $opacitytime linear;
+        }
+        &1 {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 1151;
+          width: 100vw;
+          height: 100vh;
+          background-color: #33d1df;
+          opacity: 0;
+          transition: all 0.5s ease-out;
+          transition-delay: 4.6s;
+        }
+      }
+    }
+  }
+  &_font {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1300;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+    transform: translateX(101vw);
+    transition: all 0.5s ease-out 6s;
+  }
+}
+.white-move {
+  transform: translate(0, 0);
+}
+.linetop-move {
+  transform: translate(1120px, 70px) rotate(83deg);
+}
+.linebottom-move {
+  transform: translate(-1000px, -250px) rotate(89deg);
+}
+.ink-opacity {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+.blue-scale {
+  opacity: 1;
+}
+
 .mv {
   width: 100vw;
   height: 100vh;
@@ -139,7 +367,7 @@ $time: 0.5s;
       width: 100vw;
       height: 36vh;
       right: 0;
-      transform: translateY(0);
+      transform: translateY(20px);
     }
   }
 
@@ -216,6 +444,7 @@ $time: 0.5s;
     align-items: center;
     width: 43vw;
     height: auto;
+
     @media screen and (max-width: 767px) {
       display: none;
     }
@@ -356,12 +585,13 @@ $time: 0.5s;
       }
       &_text {
         display: block;
+        font-family: "Lexend Giga", sans-serif;
         font-size: 20px;
         color: white;
         text-align: center;
         transform: translateY(20px);
         transition: all 0.5s linear;
-        transition-delay: 1.5s;
+        transition-delay: 1.7s;
       }
     }
   }
@@ -373,7 +603,7 @@ $time: 0.5s;
     height: 30px;
     transform: translateY(-40px);
     transition: all 0.3s linear;
-    transition-delay: 1.5s;
+    transition-delay: 1.7s;
 
     @media screen and (max-width: 767px) {
       top: 16px;
@@ -443,6 +673,7 @@ $time: 0.5s;
     align-items: center;
     width: 150px;
     height: 30px;
+    font-family: "Lexend Giga", sans-serif;
     background-color: rgba($color: #000000, $alpha: 0);
     border: 2px solid #000000;
     color: #000000;
