@@ -48,21 +48,150 @@ var bar = new ProgressBar.Line(splash_text, {
   },
 });
 
-var deleytime = 3000;
+var deleytime = 10000;
 
 bar.animate(1.0, function () {
+  logobg();
   $(".loadinglogo").removeClass("active");
   $(".loadinglogo-line")
     .delay(300)
     .queue(function () {
       $(".loadinglogo-line").addClass("move");
     });
-  // $(".openinganimation").delay(1000).fadeIn(300);
-  $("#splash").delay(deleytime).fadeOut(800);
-  $(".openinganimation-text")
+  $(".loading-anime-whitetop").addClass("white-move");
+  $(".loading-anime-whitebottom").addClass("white-move");
+  $(".loading-anime-ink_linetop").addClass("linetop-move");
+  $(".loading-anime-ink_linebottom").addClass("linebottom-move");
+  $(".loading-anime_ink_logo").addClass("ink-opacity");
+  $(".loading-anime_ink_r1").addClass("ink-opacity");
+  $(".loading-anime_ink_r2").addClass("ink-opacity");
+  $(".loading-anime_ink_r3").addClass("ink-opacity");
+  $(".loading-anime_ink_r4").addClass("ink-opacity");
+  $(".loading-anime_ink_l1").addClass("ink-opacity");
+  $(".loading-anime_ink_l2").addClass("ink-opacity");
+  $(".loading-anime_ink_l3").addClass("ink-opacity");
+  $(".loading-anime_ink_l4").addClass("ink-opacity");
+  $(".loading-anime_ink_logobg_0")
+    .delay(3000)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_1")
+    .delay(3200)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_2")
+    .delay(3400)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_3")
+    .delay(3600)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_4")
+    .delay(3800)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_5")
+    .delay(3900)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_6")
+    .delay(4000)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_7")
+    .delay(4100)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_8")
+    .delay(4200)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_9")
+    .delay(4300)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_10")
+    .delay(4400)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg_11")
+    .delay(4500)
+    .queue(function () {
+      $(this).css({
+        opacity: "1",
+        transform: "scale(1,1)",
+      });
+    });
+  $(".loading-anime_ink_logobg1").addClass("blue-scale");
+  $(".loading-anime_font").addClass("white-move");
+  $("#splash")
     .delay(deleytime - 200)
-    .fadeOut(500);
+    .fadeOut(100);
+  $(".loading-anime").delay(deleytime).fadeOut(3000);
 });
+
+function logobg() {
+  var posx = [134, -130, 94, 424, -106, 374, -154, 194, 384, 384, 60, 134];
+  var posy = [580, 1090, 20, 920, 290, 370, 650, 1070, 120, 650, 786, 340];
+
+  for (i = 0; i <= 11; i++) {
+    var inkImg = $("<img>", {
+      src: "./image/水玉.png",
+      alt: "水玉",
+      class: "loading-anime_ink_logobg_" + [i],
+    })
+      .clone(true)
+      .addClass("loading-anime_ink_logobg_set")
+      .css("opacity", "0");
+    $(inkImg).offset({ top: posx[i], left: posy[i] });
+    $(inkImg).appendTo(".loading-anime_ink_logobg");
+  }
+}
 
 // $(".bg-cover").css("height", $(window).height());
 // $("#splash").css("height", $(window).height());

@@ -44,8 +44,8 @@ function init() {
 
   document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-  const block_width = 10;
-  const circle_radius = 10;
+  const block_width = 8;
+  const circle_radius = 8;
   const circle_segment = 100;
   const circle_num = circle_nums();
   const block_num = block_nums();
@@ -65,14 +65,14 @@ function init() {
     if (window.innerWidth >= 767) {
       return 50;
     } else {
-      return 20;
+      return 10;
     }
   }
   function block_nums() {
     if (window.innerWidth >= 767) {
       return 50;
     } else {
-      return 30;
+      return 10;
     }
   }
   function textpoositionmaxw() {
@@ -261,7 +261,7 @@ function init() {
   var textureLoader = new THREE.TextureLoader();
   // //pon//////////////////////////////////////
   //top////////////////////////////////////////////////////////
-  var texture0 = textureLoader.load("./image/top.png");
+  var texture0 = textureLoader.load("./image/top@2x.png");
 
   let text0materiallist = {
     map: texture0,
@@ -270,15 +270,15 @@ function init() {
     blending: THREE.MultiplyBlending,
   };
   let text0Geometry = new THREE.PlaneGeometry(
-    height * (76 / 1080),
-    height * (35 / 1080)
+    (height * (181 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text0Material = new THREE.MeshBasicMaterial(text0materiallist);
   let text0Plane = new THREE.Mesh(text0Geometry, text0Material);
   text0Plane.name = "text0Plane";
 
   //skate////////////////////////////////////////////////////////
-  var texture1 = textureLoader.load("./image/skate.png");
+  var texture1 = textureLoader.load("./image/skate@2x.png");
 
   let text1materiallist = {
     map: texture1,
@@ -288,8 +288,8 @@ function init() {
   };
 
   let text1Geometry = new THREE.PlaneGeometry(
-    height * (131 / 1080),
-    height * (28 / 1080)
+    (height * (310 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text1Material = new THREE.MeshBasicMaterial(text1materiallist);
   let text1Plane = new THREE.Mesh(text1Geometry, text1Material);
@@ -297,11 +297,11 @@ function init() {
 
   //music////////////////////////////////////////////////////////
 
-  var texture2 = textureLoader.load("./image/music.png");
+  var texture2 = textureLoader.load("./image/music@2x.png");
 
   let text2Geometry = new THREE.PlaneGeometry(
-    height * (129 / 1080),
-    height * (30 / 1080)
+    (height * (301 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text2Material = new THREE.MeshBasicMaterial({
     map: texture2,
@@ -314,11 +314,11 @@ function init() {
 
   //photo////////////////////////////////////////////////////////
 
-  var texture3 = textureLoader.load("./image/photo.png");
+  var texture3 = textureLoader.load("./image/photo@2x.png");
 
   let text3Geometry = new THREE.PlaneGeometry(
-    height * (131 / 1080),
-    height * (35 / 1080)
+    (height * (301 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text3Material = new THREE.MeshBasicMaterial({
     map: texture3,
@@ -331,11 +331,11 @@ function init() {
 
   //member////////////////////////////////////////////////////////
 
-  var texture4 = textureLoader.load("./image/member.png");
+  var texture4 = textureLoader.load("./image/member@2x.png");
 
   let text4Geometry = new THREE.PlaneGeometry(
-    height * (173 / 1080),
-    height * (28 / 1080)
+    (height * (361 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text4Material = new THREE.MeshBasicMaterial({
     map: texture4,
@@ -348,11 +348,11 @@ function init() {
 
   //blog////////////////////////////////////////////////////////
 
-  var texture5 = textureLoader.load("./image/blog.png");
+  var texture5 = textureLoader.load("./image/blog@2x.png");
 
   let text5Geometry = new THREE.PlaneGeometry(
-    height * (94 / 1080),
-    height * (35 / 1080)
+    (height * (241 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text5Material = new THREE.MeshBasicMaterial({
     map: texture5,
@@ -365,11 +365,11 @@ function init() {
 
   //company////////////////////////////////////////////////////////
 
-  var texture6 = textureLoader.load("./image/company.png");
+  var texture6 = textureLoader.load("./image/company@2x.png");
 
   let text6Geometry = new THREE.PlaneGeometry(
-    height * (194 / 1080),
-    height * (28 / 1080)
+    (height * (421 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text6Material = new THREE.MeshBasicMaterial({
     map: texture6,
@@ -382,11 +382,11 @@ function init() {
 
   //contact////////////////////////////////////////////////////////
 
-  var texture7 = textureLoader.load("./image/contact.png");
+  var texture7 = textureLoader.load("./image/contact@2x.png");
 
   let text7Geometry = new THREE.PlaneGeometry(
-    height * (166 / 1080),
-    height * (28 / 1080)
+    (height * (421 / 1080)) / 2,
+    (height * (110 / 1080)) / 2
   );
   let text7Material = new THREE.MeshBasicMaterial({
     map: texture7,
@@ -756,7 +756,6 @@ function init() {
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }
-  console.log(rotateZ);
 }
 
 function onResize() {
