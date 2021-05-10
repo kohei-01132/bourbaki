@@ -2,63 +2,67 @@ var camera;
 var scene;
 var renderer;
 
-window.onload = init;
-
-window.addEventListener("resize", onResize, false);
-
-// function OnLinkClick() {
-//   init();
-// }
-
 function init() {
   var width = window.innerWidth;
   var height = window.innerHeight;
 
+  //scene作成
   scene = new THREE.Scene();
 
+  //camera作成
   camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 5000);
-
-  renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setClearColor(new THREE.Color(0xe3e3e3));
-  renderer.domElement.style.zIndex = 0;
-  renderer.setSize(width, height);
-
+  //camera ポジション
   camera.position.x = 0;
   camera.position.y = 0;
   camera.position.z = height * 1.2;
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-  var trackballControls = new THREE.TrackballControls(
-    camera,
-    renderer.domElement
-  );
+  //renderer作成
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  //背景色
+  renderer.setClearColor(new THREE.Color(0xe3e3e3));
+  renderer.domElement.style.zIndex = 0;
+  //サイズ
+  renderer.setSize(width, height);
 
-  trackballControls.rotateSpeed = 1.0;
-  trackballControls.zoomSpeed = 1.0;
-  trackballControls.panSpeed = 1.0;
-  trackballControls.staticMoving = true;
+  //トラックボール　マウス
+
+  var orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+
+  var clock = new THREE.Clock();
+
+  // trackballControls.rotateSpeed = 1.0;
+  // trackballControls.zoomSpeed = 1.0;
+  // trackballControls.panSpeed = 1.0;
+  // trackballControls.staticMoving = true;
 
   // スポットライト光源を作成
   // new THREE.SpotLight(色, 光の強さ, 距離, 照射角, ボケ具合, 減衰率)
   // const light = new THREE.SpotLight(0xff0000, 4, 1000, Math.PI, 1, 0.5);
   // scene.add(light);
 
+  //htmlに追加
   document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-  const block_width = 8;
-  const circle_radius = 8;
-  const circle_segment = 100;
-  const circle_num = circle_nums();
-  const block_num = block_nums();
-  const min_speed = -0.4;
-  const max_speed = 0.4;
-  //丸,四角の倍率
+  const block_width = 8; //■ サイズ
+  const circle_radius = 8; //● 半径
+  const circle_segment = 250; //● かくかく
+  const circle_num = circle_nums(); //● 個数
+  const block_num = block_nums(); //■ 個数
+  const min_speed = -0.4; //動くスピード min
+  const max_speed = 0.4; //動くスピード max
+  //丸,四角の倍率　/100した値が倍率
   const min_scale = 80;
   const max_scale = 150;
+  //text 個数
+  let text_num = [0, 1, 2, 3, 4, 5, 6, 7];
   //textspeed
   const max_text_speed = 100;
   const min_text_speed = -100;
+  //■ 回転スピード
   const rotateZ_max_speed = 0.05;
   const rotateZ_min_speed = -0.05;
+  //sub● 個数
   const circlesub_num = 2;
 
   function circle_nums() {
@@ -75,6 +79,7 @@ function init() {
       return 10;
     }
   }
+  // textの初期配置X(pc,phone)
   function textpoositionmaxw() {
     if (window.innerWidth >= 767) {
       return 300;
@@ -89,6 +94,7 @@ function init() {
       return 3;
     }
   }
+  // textの初期配置Y(pc,phone)
   function textpoositionmaxh() {
     if (window.innerWidth >= 767) {
       return 3;
@@ -104,7 +110,7 @@ function init() {
     }
   }
 
-  // 円を作成
+  // ● 作成
   // new THREE.CircleGeometry(radius(半径), segments(thetaLengthで設定した角度をこの数で分割します。数を大きくするほど、円に近づいていきます。), thetaStart(開始角度で、単位はラジアンです。), thetaLength(中心角で、単位はラジアンです。))
   const circleGeometry = new THREE.SphereGeometry(
     circle_radius,
@@ -120,7 +126,7 @@ function init() {
     circ.push(new THREE.Mesh(circleGeometry, circleMaterial));
   }
 
-  //   平面の長方形を作成
+  // 平面の長方形を作成
   const planegeometry = new THREE.PlaneGeometry(block_width, block_width);
   var colorplane = 0xa2a2ad;
   var planematerial = new THREE.MeshBasicMaterial({ color: colorplane });
@@ -130,47 +136,53 @@ function init() {
   for (var i = 0; i < block_num; i++) {
     rect.push(new THREE.Mesh(planegeometry, planematerial));
   }
+
   //sub円を作成
   var colorsubcircle = 0xdb5a5a;
   const circlesubMaterial = new THREE.MeshBasicMaterial({
-    color: colorsubcircle,
+    color: colorsubcircle
   });
+
   let subcircle = [];
-  for (var r = 0; r < circlesub_num; r++) {
+
+  for (var s = 0; s < circlesub_num; s++) {
     subcircle.push(new THREE.Mesh(circleGeometry, circlesubMaterial));
   }
 
   //乱数を定義
-  let a = []; //円x
-  let b = []; //円y
-  let c = []; //円z
-  let ax = []; //円x speed
-  let by = []; //円y speed
-  let x = []; //長方形x
-  let y = []; //長方形y
-  let dx = []; //長方形x speed
-  let dy = []; //長方形y speed
-  let rotateZ = [];
+  let a = []; //●x
+  let b = []; //●y
+  let c = []; //●z
+  let ax = []; //●x speed
+  let by = []; //●y speed
+  let x = []; //■x
+  let y = []; //■y
+  let dx = []; //■x speed
+  let dy = []; //■y speed
+  let rotateZ = []; //■ rotate
+  //text pc x 初期位置
   let textxpc = [
+    (width / 2) * -0.7,
+    (width / 2) * -0.3,
     (width / 2) * -0.5,
+    (width / 2) * -0.7,
     (width / 2) * -0.5,
-    (width / 2) * -0.5,
-    (width / 2) * -0.5,
-    (width / 2) * -0.5,
-    (width / 2) * -0.5,
-    (width / 2) * -0.5,
-    (width / 2) * -0.5,
-  ]; //文字x
+    (width / 2) * -0.3,
+    (width / 2) * -0.3,
+    (width / 2) * -0.7
+  ];
+  //text pc y 初期位置
   let textypc = [
-    (height / 2) * 0.3,
-    (height / 2) * 0.25,
-    (height / 2) * 0.2,
-    (height / 2) * 0.1,
+    (height / 2) * 0.6,
     (height / 2) * 0,
-    (height / 2) * -0.1,
     (height / 2) * -0.2,
-    (height / 2) * -0.3,
-  ]; //文字y
+    (height / 2) * 0.1,
+    (height / 2) * 0.3,
+    (height / 2) * -0.5,
+    (height / 2) * 0.5,
+    (height / 2) * -0.6
+  ];
+  //text phone x 初期位置
   let textxpho = [
     (width / 2) * 0.01,
     (width / 2) * 0.01,
@@ -179,8 +191,9 @@ function init() {
     (width / 2) * 0.01,
     (width / 2) * 0.01,
     (width / 2) * 0.01,
-    (width / 2) * 0.01,
-  ]; //文.1
+    (width / 2) * 0.01
+  ];
+  //text pho y 初期位置
   let textypho = [
     (height / 2) * 0.8,
     (height / 2) * 0.7,
@@ -189,26 +202,24 @@ function init() {
     (height / 2) * 0.4,
     (height / 2) * 0.3,
     (height / 2) * 0.2,
-    (height / 2) * 0.1,
-  ]; //文字y
-  let textdx = []; //文字x speed
-  let textdy = []; //文字y speed
-  let subcircle_x = [];
-  let subcircle_y = [];
+    (height / 2) * 0.1
+  ];
+  let textdx = []; //text x speed
+  let textdy = []; //text y speed
+  let subcircle_x = []; //sub ● x初期位置
+  let subcircle_y = []; //sub ● y初期位置
 
+  //● ■ 初期位置
   let min_pos_x = -(Number(width) / 2);
   let max_pos_x = Number(width) / 2;
   let min_pos_y = -(Number(height) / 2);
   let max_pos_y = Number(height) / 2;
+  //● ■ 倍率
   let min_sca = Number(min_scale);
   let max_sca = Number(max_scale);
-  let max_pos_text_x = Number(width) / 3;
-  let min_pos_text_x = -(Number(width) / 3);
-  let max_pos_text_y = Number(height) / 3;
-  let min_pos_text_y = -(Number(height) / 3);
 
+  //円の乱数作成
   for (var r = 0; r < circle_num; r++) {
-    //   円の乱数作成
     a.push(Math.floor(Math.random() * (max_pos_x - min_pos_x + 1)) + min_pos_x);
     b.push(Math.floor(Math.random() * (max_pos_y - min_pos_y + 1)) + min_pos_y);
     c.push((Math.floor(Math.random() * (max_sca - min_sca)) + min_sca) / 100);
@@ -220,8 +231,8 @@ function init() {
     );
   }
 
+  //   長方形の乱数作成
   for (var i = 0; i < block_num; i++) {
-    //   長方形の乱数作成
     x.push(Math.floor(Math.random() * (max_pos_x - min_pos_x + 1)) + min_pos_x);
     y.push(Math.floor(Math.random() * (max_pos_y - min_pos_y + 1)) + min_pos_y);
     dx.push(
@@ -235,6 +246,7 @@ function init() {
         rotateZ_min_speed
     );
   }
+  //text スピード 乱数作成
   for (var t = 0; t <= 7; t++) {
     textdx.push(
       (Math.floor(Math.random() * (max_text_speed - min_text_speed)) +
@@ -247,6 +259,7 @@ function init() {
         400
     );
   }
+  //sub ● 乱数作成
   for (var s = 0; s < circlesub_num; s++) {
     subcircle_x.push(
       Math.floor(Math.random() * (max_pos_x - min_pos_x + 1)) + min_pos_x
@@ -256,18 +269,17 @@ function init() {
     );
   }
 
-  let text_num = [0, 1, 2, 3, 4, 5, 6, 7];
   //textureloader
   var textureLoader = new THREE.TextureLoader();
-  // //pon//////////////////////////////////////
-  //top////////////////////////////////////////////////////////
+
+  //top text作成
   var texture0 = textureLoader.load("./image/top@2x.png");
 
   let text0materiallist = {
     map: texture0,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   };
   let text0Geometry = new THREE.PlaneGeometry(
     (height * (181 / 1080)) / 2,
@@ -277,14 +289,14 @@ function init() {
   let text0Plane = new THREE.Mesh(text0Geometry, text0Material);
   text0Plane.name = "text0Plane";
 
-  //skate////////////////////////////////////////////////////////
+  //skate text作成
   var texture1 = textureLoader.load("./image/skate@2x.png");
 
   let text1materiallist = {
     map: texture1,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   };
 
   let text1Geometry = new THREE.PlaneGeometry(
@@ -295,7 +307,7 @@ function init() {
   let text1Plane = new THREE.Mesh(text1Geometry, text1Material);
   text1Plane.name = "text1Plane";
 
-  //music////////////////////////////////////////////////////////
+  //music text作成
 
   var texture2 = textureLoader.load("./image/music@2x.png");
 
@@ -307,12 +319,12 @@ function init() {
     map: texture2,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text2Plane = new THREE.Mesh(text2Geometry, text2Material);
   text2Plane.name = "text2Plane";
 
-  //photo////////////////////////////////////////////////////////
+  //photo text作成
 
   var texture3 = textureLoader.load("./image/photo@2x.png");
 
@@ -324,12 +336,12 @@ function init() {
     map: texture3,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text3Plane = new THREE.Mesh(text3Geometry, text3Material);
   text3Plane.name = "text3Plane";
 
-  //member////////////////////////////////////////////////////////
+  //member text作成
 
   var texture4 = textureLoader.load("./image/member@2x.png");
 
@@ -341,12 +353,12 @@ function init() {
     map: texture4,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text4Plane = new THREE.Mesh(text4Geometry, text4Material);
   text4Plane.name = "text4Plane";
 
-  //blog////////////////////////////////////////////////////////
+  //blog text作成
 
   var texture5 = textureLoader.load("./image/blog@2x.png");
 
@@ -358,12 +370,12 @@ function init() {
     map: texture5,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text5Plane = new THREE.Mesh(text5Geometry, text5Material);
   text5Plane.name = "text5Plane";
 
-  //company////////////////////////////////////////////////////////
+  //company text作成
 
   var texture6 = textureLoader.load("./image/company@2x.png");
 
@@ -375,12 +387,12 @@ function init() {
     map: texture6,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text6Plane = new THREE.Mesh(text6Geometry, text6Material);
   text6Plane.name = "text6Plane";
 
-  //contact////////////////////////////////////////////////////////
+  //contact text作成
 
   var texture7 = textureLoader.load("./image/contact@2x.png");
 
@@ -392,24 +404,29 @@ function init() {
     map: texture7,
     opacity: 1,
     transparent: true,
-    blending: THREE.MultiplyBlending,
+    blending: THREE.MultiplyBlending
   });
   let text7Plane = new THREE.Mesh(text7Geometry, text7Material);
   text7Plane.name = "text7Plane";
 
+  //● scneに追加
   for (var r in circ) {
     circ[r].scale.x = c[r];
     circ[r].scale.y = c[r];
     circ[r].position.z = -10;
     scene.add(circ[r]);
   }
-
+  //■ sceneに追加
   for (var i in rect) {
     rect[i].scale.x = c[i];
     rect[i].scale.y = c[i];
     scene.add(rect[i]);
   }
-
+  //sub● sceneに追加
+  for (var s in subcircle) {
+    scene.add(subcircle[s]);
+  }
+  //teet sceneに追加
   scene.add(text0Plane);
   scene.add(text1Plane);
   scene.add(text2Plane);
@@ -419,10 +436,8 @@ function init() {
   scene.add(text6Plane);
   scene.add(text7Plane);
 
-  for (var i in subcircle) {
-    scene.add(subcircle[i]);
-  }
-
+  //text クリックアクション
+  //クリックする対象を追加
   var rayReceiveObjects0 = [text0Plane];
   var rayReceiveObjects1 = [text1Plane];
   var rayReceiveObjects2 = [text2Plane];
@@ -431,17 +446,20 @@ function init() {
   var rayReceiveObjects5 = [text5Plane];
   var rayReceiveObjects6 = [text6Plane];
   var rayReceiveObjects7 = [text7Plane];
-
+  //Raycaster追加
   var raycaster = new THREE.Raycaster();
+  //マウス位置を取得
   var mouse = new THREE.Vector2();
+  //クリックした時に何かに当たったか判定
   window.addEventListener("mousedown", onDocumentMouseDown, false);
   function onDocumentMouseDown(event) {
     event.preventDefault();
     mouse.x = (event.clientX / width) * 2 - 1;
     mouse.y = -(event.clientY / height) * 2 + 1;
-
+    //マウス位置からまっすぐに伸びる光線ベクトルを生成
     raycaster.setFromCamera(mouse, camera);
 
+    //光線とぶつかったオブジェクトを取得
     var intersects0 = raycaster.intersectObjects(rayReceiveObjects0);
     var intersects1 = raycaster.intersectObjects(rayReceiveObjects1);
     var intersects2 = raycaster.intersectObjects(rayReceiveObjects2);
@@ -451,6 +469,7 @@ function init() {
     var intersects6 = raycaster.intersectObjects(rayReceiveObjects6);
     var intersects7 = raycaster.intersectObjects(rayReceiveObjects7);
 
+    //各id名取得
     var elembotton = document.getElementById("botton");
     var elemmvimg = document.getElementById("mv-img");
     var elemskate = document.getElementById("skate");
@@ -461,12 +480,17 @@ function init() {
     var elemcompany = document.getElementById("company");
     var elemcontact = document.getElementById("contact");
 
+    //現在表示しているものを消してスクロール始める時間
     var timeout = 500;
-    // 交わるオブジェクトが１個以上の場合
+
+    // 交わるオブジェクトが１個以上の場合　//ぶつかったオブジェクトになんかする
     if (intersects0.length > 0) {
       var elem = document.getElementById("top");
+      //getBoundingClientRect().top = ターゲット要素の位置をブラウザの表示領域の左上からの相対位置を取得
       var pos = elem.getBoundingClientRect().top;
+      //pageYOffset = ブラウザの上端を基準とした縦方向のページのスクロール量を取得する。
       var offsetY = window.pageYOffset;
+      //getBoundingClientRectで取得した値にこの値を足した値がターゲット要素の絶対位置になる。
       var target = pos + offsetY;
       elemskate.classList.remove("opacity");
       elemmusic.classList.remove("opacity");
@@ -481,12 +505,11 @@ function init() {
         elemmvimg.classList.remove("opacity0");
       }, timeout);
     }
-    //top をクリックしたら
-    //下ボタンを透明にして
-    //所定の位置に移動
-    //contact を透明に
-    //skate を透明に
-    //textを全て非表示に
+    //topボタンクリック
+    //現在位置取得
+    //全てのコンテンツを透明に
+    //timeout 秒後 スクロールして
+    //top を表示
     if (intersects1.length > 0) {
       var pos = elemskate.getBoundingClientRect().top;
       var offsetY = window.pageYOffset;
@@ -499,12 +522,6 @@ function init() {
         elemskate.classList.add("opacity");
       }, timeout);
     }
-    //skateをクリックしたら
-    //top のボタンを透明にして
-    //skate の位置に移動
-    //skate　を表示
-    //music を透明に
-    //tectを全て非表示に
     if (intersects2.length > 0) {
       var pos = elemmusic.getBoundingClientRect().top;
       var offsetY = window.pageYOffset;
@@ -583,15 +600,13 @@ function init() {
       }, timeout);
     }
   }
-
+  //render
   render();
 
-  var clock = new THREE.Clock();
-  var delta = clock.getDelta();
+  //トラックボール
 
   function render() {
-    trackballControls.update(delta);
-    //円render
+    //● render
     for (var r in circ) {
       a[r] += ax[r];
       b[r] += by[r];
@@ -616,7 +631,7 @@ function init() {
       //   circ[r].scale.x += 0.01;
       //   circ[r].scale.y += 0.01;
     }
-    //長方形render
+    //■ render
     for (var i in rect) {
       x[i] += dx[i];
       y[i] += dy[i];
@@ -642,25 +657,26 @@ function init() {
       rect[i].rotation.z += rotateZ[i];
       // rect[i].rotation.y += 0.02;
     }
-    //文字render
+
+    //text render
     if (window.innerWidth >= 767) {
-      for (var i in text_num) {
-        textxpc[i] += textdx[i];
-        textypc[i] += textdy[i];
+      for (var t in text_num) {
+        textxpc[t] += textdx[t];
+        textypc[t] += textdy[t];
 
         if (
-          textxpc[i] > width / textpoositionmaxw() ||
-          textxpc[i] < -width / textpoositionminw()
+          textxpc[t] > width / textpoositionmaxw() ||
+          textxpc[t] < -width / textpoositionminw()
         ) {
-          textdx[i] = -textdx[i];
-          textxpc[i] += textdx[i];
+          textdx[t] = -textdx[t];
+          textxpc[t] += textdx[t];
         }
         if (
-          textypc[i] > height / textpoositionminh() ||
-          textypc[i] < -height / textpoositionmaxh()
+          textypc[t] > height / textpoositionminh() ||
+          textypc[t] < -height / textpoositionmaxh()
         ) {
-          textdy[i] = -textdy[i];
-          textypc[i] += textdy[i];
+          textdy[t] = -textdy[t];
+          textypc[t] += textdy[t];
         }
         text0Plane.position.x = textxpc[0];
         text0Plane.position.y = textypc[0];
@@ -687,23 +703,23 @@ function init() {
         text7Plane.position.y = textypc[7];
       }
     } else {
-      for (var i in text_num) {
-        textxpho[i] += textdx[i];
-        textypho[i] += textdy[i];
+      for (var t in text_num) {
+        textxpho[t] += textdx[t];
+        textypho[t] += textdy[t];
 
         if (
-          textxpho[i] > width / textpoositionmaxw() ||
-          textxpho[i] < -width / textpoositionminw()
+          textxpho[t] > width / textpoositionmaxw() ||
+          textxpho[t] < -width / textpoositionminw()
         ) {
-          textdx[i] = -textdx[i];
-          textxpho[i] += textdx[i];
+          textdx[t] = -textdx[t];
+          textxpho[t] += textdx[t];
         }
         if (
-          textypho[i] > height / textpoositionminh() ||
-          textypho[i] < -height / textpoositionmaxh()
+          textypho[t] > height / textpoositionminh() ||
+          textypho[t] < -height / textpoositionmaxh()
         ) {
-          textdy[i] = -textdy[i];
-          textypho[i] += textdy[i];
+          textdy[t] = -textdy[t];
+          textypho[t] += textdy[t];
         }
         text0Plane.position.x = textxpho[0];
         text0Plane.position.y = textypho[0];
@@ -730,7 +746,7 @@ function init() {
         text7Plane.position.y = textypho[7];
       }
     }
-
+    //sub● render
     for (var s in subcircle) {
       subcircle_x[s] += ax[s];
       subcircle_y[s] += by[s];
@@ -752,14 +768,20 @@ function init() {
       subcircle[s].position.x = subcircle_x[s];
       subcircle[s].position.y = subcircle_y[s];
     }
-
+    var delta = clock.getDelta();
+    orbitControls.update(delta);
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }
 }
-
+//resize アクション
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
+window.onload = init;
+
+//resize
+window.addEventListener("resize", onResize, false);

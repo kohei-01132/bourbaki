@@ -1,8 +1,9 @@
-$(window).on("load", function () {
+$(window).on("load", function() {
+  //loading後一番上にいること
   var topPosition = $("#top").offset().top;
   $("html,body").animate({ scrollTop: topPosition }, 10);
-
-  $(".hamMenu").on("click", function () {
+  //ハンバーガーメニューアクション
+  $(".hamMenu").on("click", function() {
     $(".hamMenu-up").toggleClass("active-line");
     $(".hamMenu-center").toggleClass("active-line");
     $(".hamMenu-down").toggleClass("active-line");
@@ -10,8 +11,8 @@ $(window).on("load", function () {
     $(".hamMenu-returnbtn").toggleClass("active-return");
     $(".hamMenu-main_list_text").toggleClass("active-return");
   });
-
-  $(".hamMenu-returnbtn ,.hamMenu-main_list_text").on("click", function () {
+  //ハンバーガーメニュー × アクション
+  $(".hamMenu-returnbtn ,.hamMenu-main_list_text").on("click", function() {
     $(".hamMenu-returnbtn").toggleClass("active-return");
     $(".hamMenu-main_list_text").toggleClass("active-return");
     $(".hamMenu-main").toggleClass("active");
@@ -20,7 +21,7 @@ $(window).on("load", function () {
     $(".hamMenu-up").toggleClass("active-line");
   });
 });
-
+//プログレスバー作成
 //progressBar.line = 線上のプログレスバーを生成
 var bar = new ProgressBar.Line(splash_text, {
   easing: "easeInOut",
@@ -39,30 +40,38 @@ var bar = new ProgressBar.Line(splash_text, {
       margin: "-25px 0 0 0",
       transform: "translate(-50%,-50%)",
       "font-size": "12px",
-      color: "#fff",
+      color: "#fff"
     },
-    autoStyleContiner: false, //自動付与のスタイルを切る
+    autoStyleContiner: false //自動付与のスタイルを切る
   },
-  step: function (state, bar) {
+  step: function(state, bar) {
     bar.setText(Math.round(bar.value() * 100) + "%");
-  },
+  }
 });
 
-var deleytime = 10000;
+//loading animation 消す時間
+var deleytime = 8000;
 
-bar.animate(1.0, function () {
+//プログレスバー読み込み完了後アクション
+bar.animate(1.0, function() {
+  //水色のペンキを生成
   logobg();
+  //棒が飛ぶ
   $(".loadinglogo").removeClass("active");
   $(".loadinglogo-line")
     .delay(300)
-    .queue(function () {
+    .queue(function() {
       $(".loadinglogo-line").addClass("move");
     });
+  //白壁が降りてくる
   $(".loading-anime-whitetop").addClass("white-move");
   $(".loading-anime-whitebottom").addClass("white-move");
+  //棒が横から飛んでくる
   $(".loading-anime-ink_linetop").addClass("linetop-move");
   $(".loading-anime-ink_linebottom").addClass("linebottom-move");
+  //白画面にロゴを配置
   $(".loading-anime_ink_logo").addClass("ink-opacity");
+  //棒に合わせてインクが塗られる 色鮮やか編
   $(".loading-anime_ink_r1").addClass("ink-opacity");
   $(".loading-anime_ink_r2").addClass("ink-opacity");
   $(".loading-anime_ink_r3").addClass("ink-opacity");
@@ -71,110 +80,118 @@ bar.animate(1.0, function () {
   $(".loading-anime_ink_l2").addClass("ink-opacity");
   $(".loading-anime_ink_l3").addClass("ink-opacity");
   $(".loading-anime_ink_l4").addClass("ink-opacity");
+  //インクが塗られる 水色編
   $(".loading-anime_ink_logobg_0")
     .delay(3000)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_1")
     .delay(3200)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_2")
     .delay(3400)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_3")
     .delay(3600)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_4")
     .delay(3800)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_5")
     .delay(3900)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_6")
     .delay(4000)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_7")
     .delay(4100)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_8")
     .delay(4200)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_9")
     .delay(4300)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_10")
     .delay(4400)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_11")
     .delay(4500)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
+  //前面水色
   $(".loading-anime_ink_logobg1").addClass("blue-scale");
+  //黒壁登場
   $(".loading-anime_font").addClass("white-move");
+  //ローディング画面フェードアウト
   $("#splash")
     .delay(deleytime - 200)
     .fadeOut(100);
-  $(".loading-anime").delay(deleytime).fadeOut(3000);
+  //animation フェードアウト
+  $(".loading-anime")
+    .delay(deleytime)
+    .fadeOut(3000);
 });
 
+//水色インク生成
 function logobg() {
   var posx = [134, -130, 94, 424, -106, 374, -154, 194, 384, 384, 60, 134];
   var posy = [580, 1090, 20, 920, 290, 370, 650, 1070, 120, 650, 786, 340];
@@ -183,7 +200,7 @@ function logobg() {
     var inkImg = $("<img>", {
       src: "./image/水玉.png",
       alt: "水玉",
-      class: "loading-anime_ink_logobg_" + [i],
+      class: "loading-anime_ink_logobg_" + [i]
     })
       .clone(true)
       .addClass("loading-anime_ink_logobg_set")
@@ -193,21 +210,19 @@ function logobg() {
   }
 }
 
-// $(".bg-cover").css("height", $(window).height());
-// $("#splash").css("height", $(window).height());
-// $("#openinganimation").css("height", $(window).height());
-// $(".mv").css("height", $(window).height());
-// $(".skate").css("height", $(window).height());
-// $(".music").css("height", $(window).height());
-// $(".photo").css("height", $(window).height());
-// $(".member").css("height", $(window).height());
-// $(".blog").css("height", $(window).height());
-// $(".company").css("height", $(window).height());
-// $(".contact").css("height", $(window).height());
+//各リンククリック後フェードアウト時間
+var timeout = 10;
 
-var timeout = 500;
+//ボタンクリックアクション
 
-$('a[href*="#"]').click(function () {
+//skateをクリックしたら
+//top のボタンを透明にして
+//skate の位置に移動
+//skate　を表示
+//music を透明に
+
+$('a[href*="#"]').click(function() {
+  //top
   var elmHash = $(this).attr("href"); //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
   var pos = $(elmHash).offset().top; //idの上部の距離を取得
   if (elmHash === "#top") {
@@ -242,6 +257,7 @@ $('a[href*="#"]').click(function () {
         $(".mv-img").removeClass("opacity0");
       }
     }, timeout);
+    //skate
   } else if (elmHash === "#skate") {
     if ($(".page-button_opacity0").hasClass("opacity0")) {
     } else {
@@ -261,11 +277,7 @@ $('a[href*="#"]').click(function () {
         $(".skate").addClass("opacity");
       }
     }, timeout);
-    //skateをクリックしたら
-    //top のボタンを透明にして
-    //skate の位置に移動
-    //skate　を表示
-    //music を透明に
+    //music
   } else if (elmHash === "#music") {
     if ($(".skate").hasClass("opacity")) {
       $(".skate").removeClass("opacity");
@@ -280,6 +292,7 @@ $('a[href*="#"]').click(function () {
         $(".music").addClass("opacity");
       }
     }, timeout);
+    //photo
   } else if (elmHash === "#photo") {
     if ($(".music").hasClass("opacity")) {
       $(".music").removeClass("opacity");
@@ -294,6 +307,7 @@ $('a[href*="#"]').click(function () {
         $(".photo").addClass("opacity");
       }
     }, timeout);
+    //member
   } else if (elmHash === "#member") {
     if ($(".photo").hasClass("opacity")) {
       $(".photo").removeClass("opacity");
@@ -308,6 +322,7 @@ $('a[href*="#"]').click(function () {
         $(".member").addClass("opacity");
       }
     }, timeout);
+    //blog
   } else if (elmHash === "#blog") {
     if ($(".member").hasClass("opacity")) {
       $(".member").removeClass("opacity");
@@ -322,6 +337,7 @@ $('a[href*="#"]').click(function () {
         $(".blog").addClass("opacity");
       }
     }, timeout);
+    //company
   } else if (elmHash === "#company") {
     if ($(".blog").hasClass("opacity")) {
       $(".blog").removeClass("opacity");
@@ -336,6 +352,7 @@ $('a[href*="#"]').click(function () {
         $(".company").addClass("opacity");
       }
     }, timeout);
+    //contact
   } else if (elmHash === "#contact") {
     if ($(".company").hasClass("opacity")) {
       $(".company").removeClass("opacity");
