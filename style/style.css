@@ -5,6 +5,7 @@
 
 .body {
   overflow: hidden;
+  height: 100%;
 }
 
 .bg-animation {
@@ -17,7 +18,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 200vh;
+  height: 200%;
   opacity: 0.1;
   background-color: #000000;
   mix-blend-mode: multiply;
@@ -29,7 +30,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: #222222;
 }
 
@@ -222,7 +223,7 @@
   position: fixed;
   z-index: 1100;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 .loading-anime-whitetop {
@@ -409,7 +410,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.1s linear 1.6s;
   transition: all 0.1s linear 1.6s;
@@ -457,7 +458,7 @@
   left: 0;
   z-index: 1151;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: #33d1df;
   opacity: 0;
   -webkit-transition: all 0.5s ease-out;
@@ -472,7 +473,7 @@
   left: 0;
   z-index: 1300;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: #333;
   -webkit-transform: translateX(101vw);
           transform: translateX(101vw);
@@ -503,95 +504,6 @@
 
 .blue-scale {
   opacity: 1;
-}
-
-.mv {
-  width: 100vw;
-  height: 100vh;
-}
-
-.mv-section {
-  position: absolute;
-  top: 50%;
-  right: 50px;
-  width: 43vw;
-  height: 80vh;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-@media screen and (max-width: 767px) {
-  .mv-section {
-    width: 100vw;
-    height: 36vh;
-    right: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-  }
-}
-
-.mv-img {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 43vw;
-  height: 80vh;
-  opacity: 1;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-@media screen and (max-width: 767px) {
-  .mv-img {
-    top: 0;
-    right: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100vw;
-    height: 36vh;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-.mv-img_top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 21vw;
-  min-width: 230px;
-}
-
-.mv-img_top img {
-  width: 100%;
-}
-
-@media screen and (max-width: 767px) {
-  .mv-img_top {
-    min-width: 140px;
-    margin-left: 0px;
-  }
-}
-
-.mv-img_bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 34vw;
-  min-width: 320px;
-}
-
-.mv-img_bottom img {
-  width: 100%;
-}
-
-@media screen and (max-width: 767px) {
-  .mv-img_bottom {
-    min-width: 260px;
-  }
 }
 
 .header {
@@ -839,7 +751,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 101vw;
-  height: 101vh;
+  height: 100%;
   background-color: #222222;
   opacity: 0;
   -webkit-transform: translateX(170vw) rotate(90deg);
@@ -945,6 +857,95 @@
           transform: translateY(0);
 }
 
+.mv {
+  width: 100vw;
+  height: 100%;
+}
+
+.mv-section {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  width: 43vw;
+  height: 80vh;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media screen and (max-width: 767px) {
+  .mv-section {
+    width: 100vw;
+    height: 36vh;
+    right: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+.mv-img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 43vw;
+  height: 80vh;
+  opacity: 1;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .mv-img {
+    top: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    height: 36vh;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.mv-img_top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 21vw;
+  min-width: 230px;
+}
+
+.mv-img_top img {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .mv-img_top {
+    min-width: 140px;
+    margin-left: 0px;
+  }
+}
+
+.mv-img_bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 34vw;
+  min-width: 320px;
+}
+
+.mv-img_bottom img {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .mv-img_bottom {
+    min-width: 260px;
+  }
+}
+
 .page-button {
   position: absolute;
   bottom: 5vh;
@@ -966,7 +967,7 @@
 @media screen and (max-width: 767px) {
   .page-button {
     width: 330px;
-    bottom: 60px;
+    bottom: 20px;
   }
 }
 
@@ -1018,7 +1019,7 @@
 
 .main {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 1;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1028,7 +1029,7 @@
   position: relative;
   opacity: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -1036,7 +1037,7 @@
 .music {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1045,7 +1046,7 @@
 .photo {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1054,7 +1055,7 @@
 .member {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1063,7 +1064,7 @@
 .blog {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1072,7 +1073,7 @@
 .company {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1081,7 +1082,7 @@
 .contact {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
