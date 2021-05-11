@@ -1,8 +1,8 @@
 //content transitionTime
-$time: 0.5s;
+$time: 1s;
 
 // loading 後 animation ink opacity time
-$opacitytime: 0.05s;
+$opacitytime: 0.1s;
 
 * {
   text-decoration: none;
@@ -10,7 +10,6 @@ $opacitytime: 0.05s;
 }
 .body {
   overflow: hidden;
-  height: 100%;
 }
 //backgroudanimation
 .bg-animation {
@@ -22,8 +21,8 @@ $opacitytime: 0.05s;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 200%;
-  opacity: 0.1;
+  height: 100%;
+  opacity: 0;
   background-color: #000000;
   mix-blend-mode: multiply;
 }
@@ -35,7 +34,7 @@ $opacitytime: 0.05s;
   left: 0;
   width: 100vw;
   height: 100%;
-  background-color: #222222;
+  background-color: #111111;
   &_text {
     position: absolute;
     top: 50%;
@@ -147,7 +146,8 @@ $opacitytime: 0.05s;
     height: 60vh;
     background-color: #fff;
     transform: translate(0, -61vh);
-    transition: all 0.3s linear 1s;
+    transition: all 0.5s 1s;
+    transition-timing-function: cubic-bezier(0.39, 0.16, 0.97, 0.28);
   }
   &-whitebottom {
     position: absolute;
@@ -158,7 +158,8 @@ $opacitytime: 0.05s;
     height: 60vh;
     background-color: #fff;
     transform: translate(0, 60vh);
-    transition: all 0.3s linear 1s;
+    transition: all 0.5s 1s;
+    transition-timing-function: cubic-bezier(0.39, 0.16, 0.97, 0.28);
   }
   &-ink {
     &_linetop {
@@ -172,7 +173,7 @@ $opacitytime: 0.05s;
       background-color: #333;
       transform: translate(-1000px, 290px) rotate(83deg);
       transform-origin: center top;
-      transition: all 1s ease-in 1.5s;
+      transition: all 0.8s ease-in 1.7s;
     }
     &_linebottom {
       position: absolute;
@@ -185,7 +186,7 @@ $opacitytime: 0.05s;
       background-color: #333;
       transform: translate(1120px, -370px) rotate(89deg);
       transform-origin: center top;
-      transition: all 1s ease-in 1.5s;
+      transition: all 0.8s ease-in 1.7s;
     }
   }
   &_ink {
@@ -203,8 +204,9 @@ $opacitytime: 0.05s;
       top: 0;
       right: 0;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 1.8s;
+      transform: scale(0.5, 0.5);
+      transition: all $opacitytime 2s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_r2 {
       position: absolute;
@@ -212,8 +214,9 @@ $opacitytime: 0.05s;
       top: 0;
       right: 110px;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.1s;
+      transform: scale(0.6, 0.6);
+      transition: all $opacitytime 2.1s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_r3 {
       position: absolute;
@@ -221,8 +224,9 @@ $opacitytime: 0.05s;
       top: 0;
       left: 30px;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.4s;
+      transform: scale(0.8, 0.8);
+      transition: all $opacitytime 2.4s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_r4 {
       position: absolute;
@@ -230,8 +234,9 @@ $opacitytime: 0.05s;
       top: 0;
       left: 0;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.7s;
+      transform: scale(0.7, 0.7);
+      transition: all $opacitytime 2.7s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_l1 {
       position: absolute;
@@ -239,8 +244,9 @@ $opacitytime: 0.05s;
       bottom: 0;
       left: 0;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 1.8s;
+      transform: scale(0.5, 0.5);
+      transition: all $opacitytime 2s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_l2 {
       position: absolute;
@@ -248,8 +254,9 @@ $opacitytime: 0.05s;
       bottom: 0;
       left: 210px;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.1s;
+      transform: scale(0.8, 0.8);
+      transition: all $opacitytime 2.1s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_l3 {
       position: absolute;
@@ -257,8 +264,9 @@ $opacitytime: 0.05s;
       bottom: 0;
       right: 40px;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.4s;
+      transform: scale(0.6, 0.6);
+      transition: all $opacitytime 2.4s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
     &_l4 {
       position: absolute;
@@ -266,8 +274,9 @@ $opacitytime: 0.05s;
       bottom: 0;
       right: -30px;
       opacity: 0;
-      transform: scale(0.2, 0.2);
-      transition: all $opacitytime linear 2.7s;
+      transform: scale(0.7, 0.7);
+      transition: all $opacitytime 2.7s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
     }
 
     &_logo {
@@ -281,7 +290,8 @@ $opacitytime: 0.05s;
       width: 100vw;
       height: 100%;
       opacity: 0;
-      transition: all 0.1s linear 1.6s;
+      transition: all 0.1s 1.7s;
+      transition-timing-function: cubic-bezier(0.83, 0, 1, 0.58);
 
       &_img {
         width: 100%;
@@ -321,7 +331,7 @@ $opacitytime: 0.05s;
           background-color: #33d1df;
           opacity: 0;
           transition: all 0.5s ease-out;
-          transition-delay: 4.6s;
+          transition-delay: 4.4s;
         }
       }
     }
@@ -330,12 +340,13 @@ $opacitytime: 0.05s;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1300;
+    z-index: 1160;
     width: 100vw;
     height: 100%;
     background-color: #333;
     transform: translateX(101vw);
-    transition: all 0.5s ease-out 6s;
+    transition: all 0.7s 5.5s;
+    transition-timing-function: cubic-bezier(0.17, 0.8, 0.91, 0.2);
   }
 }
 .white-move {
@@ -375,22 +386,6 @@ $opacitytime: 0.05s;
     background-size: 2130px;
     background-position: center -6px;
   }
-
-  &-menu {
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    width: 43vw;
-    height: auto;
-
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-
-    a {
-      color: #dddddd;
-    }
-  }
 }
 .logo {
   a {
@@ -411,14 +406,23 @@ $opacitytime: 0.05s;
     }
   }
   &-type {
+    margin-right: 20px;
     font-family: "Sawarabi Gothic", sans-serif;
     font-size: 20px;
     color: #dddddd;
     animation: logotype 5s linear infinite;
+    animation-delay: 1s;
 
     @media screen and (max-width: 767px) {
       font-size: 18px;
     }
+  }
+  &-nav {
+    font-family: "Sawarabi Gothic", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    animation: logotype 3s linear infinite;
+    animation-delay: 0.2s;
   }
 }
 
@@ -588,10 +592,11 @@ $opacitytime: 0.05s;
     width: 43vw;
     height: 80vh;
     transform: translateY(-50%);
+    transition: all $time ease;
 
     @media screen and (max-width: 767px) {
       width: 100vw;
-      height: 36vh;
+      height: 42%;
       right: 0;
       transform: translateY(20px);
     }
@@ -605,14 +610,13 @@ $opacitytime: 0.05s;
     height: 80vh;
     opacity: 1;
     transform: translateY(-50%);
-    transition: all $time ease;
 
     @media screen and (max-width: 767px) {
       top: 0;
       right: 0;
       display: flex;
       width: 100vw;
-      height: 36vh;
+      height: 100%;
       transform: translateY(0);
     }
     &_top {
@@ -654,8 +658,8 @@ $opacitytime: 0.05s;
   width: 380px;
   transform: translateX(-50%);
   @media screen and (max-width: 767px) {
+    bottom: 10px;
     width: 330px;
-    bottom: 20px;
   }
   &_opacity0 {
     position: absolute;
@@ -670,7 +674,7 @@ $opacitytime: 0.05s;
     transition: all $time ease;
 
     @media screen and (max-width: 767px) {
-      bottom: 60px;
+      bottom: 10px;
       width: 340px;
     }
   }
@@ -695,52 +699,101 @@ $opacitytime: 0.05s;
 }
 .skate {
   position: relative;
-  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
+  opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .music {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .photo {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .member {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .blog {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .company {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .contact {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100%;
+  padding: 100px 40px;
   opacity: 0;
   transition: all $time ease;
+  @media screen and (max-width: 767px) {
+    padding: 75px 15px 40px;
+  }
 }
 .opacity {
   opacity: 1;
@@ -750,39 +803,51 @@ $opacitytime: 0.05s;
 }
 //コンテンツ共通内容
 .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background-color: rgba($color: #eeeeee, $alpha: 0.8);
   @media screen and (max-width: 767px) {
-    padding: 50px 0 0 0;
-    justify-content: flex-start;
+    padding: 10px;
     flex-direction: column;
-    transform: translate(-50%, -56%);
   }
 }
 
 .photobase {
-  width: 46vw;
-  height: 80vh;
-  border: 5px solid #999999;
-  background-color: rgba($color: #000000, $alpha: 0);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
   @media screen and (max-width: 767px) {
-    width: 101vw;
-    height: 40vh;
+    width: 100%;
+    height: 70%;
+  }
+  &-img {
+    width: 100%;
+    height: auto;
   }
 }
 .textbase {
-  width: 46vw;
-  height: 80vh;
-  border: 5px solid #555555;
-  background-color: rgba($color: #000000, $alpha: 0);
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
   @media screen and (max-width: 767px) {
-    width: 101vw;
-    height: 40vh;
+    width: 100%;
+    height: 30%;
   }
+  &-title {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 46px;
+    margin-bottom: 20px;
+  }
+  // &-text {
+  //   display: block;
+  // }
 }
