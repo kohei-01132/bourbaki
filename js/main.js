@@ -2,25 +2,35 @@ $(window).on("load", function() {
   //loading後一番上にいること
   var topPosition = $("#top").offset().top;
   $("html,body").animate({ scrollTop: topPosition }, 10);
+
+  //表示する媒体の高さを取得
+  windowresize();
+
   //ハンバーガーメニューアクション
   $(".hamMenu").on("click", function() {
-    $(".hamMenu-up").toggleClass("active-line");
-    $(".hamMenu-center").toggleClass("active-line");
-    $(".hamMenu-down").toggleClass("active-line");
+    $(".hamMenu-up,.hamMenu-center,.hamMenu-down").toggleClass("active-line");
     $(".hamMenu-main").toggleClass("active");
-    $(".hamMenu-returnbtn").toggleClass("active-return");
-    $(".hamMenu-main_list_text").toggleClass("active-return");
+    $(".hamMenu-returnbtn,.hamMenu-main_list_text").toggleClass(
+      "active-return"
+    );
   });
   //ハンバーガーメニュー × アクション
   $(".hamMenu-returnbtn ,.hamMenu-main_list_text").on("click", function() {
-    $(".hamMenu-returnbtn").toggleClass("active-return");
-    $(".hamMenu-main_list_text").toggleClass("active-return");
+    $(".hamMenu-returnbtn,.hamMenu-main_list_text").toggleClass(
+      "active-return"
+    );
     $(".hamMenu-main").toggleClass("active");
-    $(".hamMenu-down").toggleClass("active-line");
-    $(".hamMenu-center").toggleClass("active-line");
-    $(".hamMenu-up").toggleClass("active-line");
+    $(".hamMenu-down,.hamMenu-center,.hamMenu-up").toggleClass("active-line");
   });
 });
+
+//windowresize
+$(window).resize(windowresize);
+
+function windowresize() {
+  $(".body").css("height", height);
+}
+
 //プログレスバー作成
 //progressBar.line = 線上のプログレスバーを生成
 var bar = new ProgressBar.Line(splash_text, {
@@ -50,7 +60,7 @@ var bar = new ProgressBar.Line(splash_text, {
 });
 
 //loading animation 消す時間
-var deleytime = 8000;
+var deleytime = 20000;
 
 //プログレスバー読み込み完了後アクション
 bar.animate(1.0, function() {
@@ -72,14 +82,9 @@ bar.animate(1.0, function() {
   //白画面にロゴを配置
   $(".loading-anime_ink_logo").addClass("ink-opacity");
   //棒に合わせてインクが塗られる 色鮮やか編
-  $(".loading-anime_ink_r1").addClass("ink-opacity");
-  $(".loading-anime_ink_r2").addClass("ink-opacity");
-  $(".loading-anime_ink_r3").addClass("ink-opacity");
-  $(".loading-anime_ink_r4").addClass("ink-opacity");
-  $(".loading-anime_ink_l1").addClass("ink-opacity");
-  $(".loading-anime_ink_l2").addClass("ink-opacity");
-  $(".loading-anime_ink_l3").addClass("ink-opacity");
-  $(".loading-anime_ink_l4").addClass("ink-opacity");
+  $(
+    ".loading-anime_ink_r1,.loading-anime_ink_r2,.loading-anime_ink_r3,.loading-anime_ink_r4,.loading-anime_ink_l1,.loading-anime_ink_l2,.loading-anime_ink_l3,.loading-anime_ink_l4"
+  ).addClass("ink-opacity");
   //インクが塗られる 水色編
   $(".loading-anime_ink_logobg_0")
     .delay(3000)
@@ -211,7 +216,7 @@ function logobg() {
 }
 
 //各リンククリック後フェードアウト時間
-var timeout = 10;
+var timeout = 500;
 
 //ボタンクリックアクション
 
@@ -253,8 +258,8 @@ $('a[href*="#"]').click(function() {
       if ($(".page-button_opacity0").hasClass("opacity0")) {
         $(".page-button_opacity0").removeClass("opacity0");
       }
-      if ($(".mv-img").hasClass("opacity0")) {
-        $(".mv-img").removeClass("opacity0");
+      if ($(".mv-section").hasClass("opacity0")) {
+        $(".mv-section").removeClass("opacity0");
       }
     }, timeout);
     //skate
@@ -263,15 +268,15 @@ $('a[href*="#"]').click(function() {
     } else {
       $(".page-button_opacity0").addClass("opacity0");
     }
-    if ($(".mv-img").hasClass("opacity0")) {
+    if ($(".mv-section").hasClass("opacity0")) {
     } else {
-      $(".mv-img").addClass("opacity0");
+      $(".mv-section").addClass("opacity0");
     }
     if ($(".music").hasClass("opacity")) {
       $(".music").removeClass("opacity");
     }
     setTimeout(() => {
-      $("body,html").animate({ scrollTop: pos }, 0); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
+      $("body,html").animate({ scrollTop: pos }, 1000); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
       if ($(".skate").hasClass("opacity")) {
       } else {
         $(".skate").addClass("opacity");
@@ -361,9 +366,9 @@ $('a[href*="#"]').click(function() {
     } else {
       $(".page-button_opacity0").addClass("opacity0");
     }
-    if ($(".mv-img").hasClass("opacity0")) {
+    if ($(".mv-section").hasClass("opacity0")) {
     } else {
-      $(".mv-img").addClass("opacity0");
+      $(".mv-section").addClass("opacity0");
     }
     setTimeout(() => {
       $("body,html").animate({ scrollTop: pos }, 0); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール

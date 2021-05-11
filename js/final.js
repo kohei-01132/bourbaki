@@ -1,11 +1,12 @@
 var camera;
 var scene;
 var renderer;
+var width = window.innerWidth;
+var height = window.innerHeight;
+console.log(width);
+console.log(height);
 
 function init() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-
   //scene作成
   scene = new THREE.Scene();
 
@@ -20,7 +21,7 @@ function init() {
   //renderer作成
   renderer = new THREE.WebGLRenderer({ alpha: true });
   //背景色
-  renderer.setClearColor(new THREE.Color(0xe3e3e3));
+  renderer.setClearColor(new THREE.Color(0xffffff));
   renderer.domElement.style.zIndex = 0;
   //サイズ
   renderer.setSize(width, height);
@@ -471,7 +472,7 @@ function init() {
 
     //各id名取得
     var elembotton = document.getElementById("botton");
-    var elemmvimg = document.getElementById("mv-img");
+    var elemmvimg = document.getElementById("mv-section");
     var elemskate = document.getElementById("skate");
     var elemmusic = document.getElementById("music");
     var elemphoto = document.getElementById("photo");
@@ -479,6 +480,7 @@ function init() {
     var elemblog = document.getElementById("blog");
     var elemcompany = document.getElementById("company");
     var elemcontact = document.getElementById("contact");
+    var elemname = document.getElementById("logo-nav");
 
     //現在表示しているものを消してスクロール始める時間
     var timeout = 500;
