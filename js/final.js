@@ -3,6 +3,7 @@ var scene;
 var renderer;
 var width = window.innerWidth;
 var height = window.innerHeight;
+console.log(width);
 //textureloader
 var textureLoader = new THREE.TextureLoader();
 
@@ -26,12 +27,6 @@ function init() {
   renderer.setPixelRatio(1);
   //サイズ
   renderer.setSize(width, height);
-
-  //トラックボール　マウス
-
-  // var orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-
-  // var clock = new THREE.Clock();
 
   // スポットライト光源を作成
   // new THREE.SpotLight(色, 光の強さ, 距離, 照射角, ボケ具合, 減衰率)
@@ -137,7 +132,7 @@ function init() {
   //sub円を作成
   var colorsubcircle = 0xdb5a5a;
   const circlesubMaterial = new THREE.MeshBasicMaterial({
-    color: colorsubcircle,
+    color: colorsubcircle
   });
 
   let subcircle = [];
@@ -147,9 +142,9 @@ function init() {
   }
 
   var backmap = textureLoader.load("./image/guraduation.jpg");
-  var blackGeometry = new THREE.PlaneGeometry(width * 2, height * 2);
+  var blackGeometry = new THREE.PlaneGeometry(width * 2, width * 2);
   var blackMaterial = new THREE.MeshBasicMaterial({
-    map: backmap,
+    map: backmap
     // color: 0x111111
   });
   var blackPlane = new THREE.Mesh(blackGeometry, blackMaterial);
@@ -802,6 +797,7 @@ function init() {
       subcircle[s].position.x = subcircle_x[s];
       subcircle[s].position.y = subcircle_y[s];
     }
+    blackPlane.rotation.z += 0.002;
   }
 }
 //resize アクション
