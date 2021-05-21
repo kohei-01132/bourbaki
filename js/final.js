@@ -3,7 +3,6 @@ var scene;
 var renderer;
 var width = window.innerWidth;
 var height = window.innerHeight;
-console.log(width);
 //textureloader
 var textureLoader = new THREE.TextureLoader();
 
@@ -38,7 +37,7 @@ function init() {
 
   const block_width = 8; //■ サイズ
   const circle_radius = 5; //● 半径
-  const circle_segment = 100; //● かくかく
+  const circle_segment = 20; //● かくかく
   const circle_num = circle_nums(); //● 個数
   const block_num = block_nums(); //■ 個数
   const min_speed = -0.2; //動くスピード min
@@ -59,14 +58,14 @@ function init() {
 
   function circle_nums() {
     if (window.innerWidth >= 767) {
-      return 50;
+      return 100;
     } else {
       return 10;
     }
   }
   function block_nums() {
     if (window.innerWidth >= 767) {
-      return 50;
+      return 100;
     } else {
       return 10;
     }
@@ -132,7 +131,7 @@ function init() {
   //sub円を作成
   var colorsubcircle = 0xdb5a5a;
   const circlesubMaterial = new THREE.MeshBasicMaterial({
-    color: colorsubcircle
+    color: colorsubcircle,
   });
 
   let subcircle = [];
@@ -142,9 +141,9 @@ function init() {
   }
 
   var backmap = textureLoader.load("./image/guraduation.jpg");
-  var blackGeometry = new THREE.PlaneGeometry(width * 2, width * 2);
+  var blackGeometry = new THREE.PlaneGeometry(height * 2, height * 2);
   var blackMaterial = new THREE.MeshBasicMaterial({
-    map: backmap
+    map: backmap,
     // color: 0x111111
   });
   var blackPlane = new THREE.Mesh(blackGeometry, blackMaterial);
