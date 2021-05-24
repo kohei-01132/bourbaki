@@ -93,7 +93,7 @@ bar.animate(1.0, function () {
   $(".loading-anime-ink_linetop").addClass("linetop-move");
   $(".loading-anime-ink_linebottom").addClass("linebottom-move");
   //白画面にロゴを配置
-  $(".loading-anime_ink_logo").addClass("ink-opacity");
+  $(".loading-anime_ink_logo").addClass("ink-font-opacity");
   //棒に合わせてインクが塗られる 色鮮やか編
   $(
     ".loading-anime_ink_r1,.loading-anime_ink_r2,.loading-anime_ink_r3,.loading-anime_ink_r4,.loading-anime_ink_l1,.loading-anime_ink_l2,.loading-anime_ink_l3,.loading-anime_ink_l4"
@@ -444,11 +444,41 @@ $(function () {
           "page-position_circle_skate_move"
         );
       }
+      if ($(".skate-photo1-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo1-img").addClass("skate-photo-move");
+      }
+      if ($(".skate-photo2-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo2-img").addClass("skate-photo-move");
+      }
+      if ($(".skate-photo3-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo3-img").addClass("skate-photo-move");
+      }
+      if ($(".skate-photo4-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo4-img").addClass("skate-photo-move");
+      }
+      if ($(".skate-photo5-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo5-img").addClass("skate-photo-move");
+      }
+      if ($(".skate-photo6-img").hasClass("skate-photo-move")) {
+      } else {
+        $(".skate-photo6-img").addClass("skate-photo-move");
+      }
     } else {
       $(".mv-menu_list_text.mv-menu-skate").removeClass("colorskate");
       $(".page-position_circle_skate").removeClass(
         "page-position_circle_skate_move"
       );
+      $(".skate-photo1-img").removeClass("skate-photo-move");
+      $(".skate-photo2-img").removeClass("skate-photo-move");
+      $(".skate-photo3-img").removeClass("skate-photo-move");
+      $(".skate-photo4-img").removeClass("skate-photo-move");
+      $(".skate-photo5-img").removeClass("skate-photo-move");
+      $(".skate-photo6-img").removeClass("skate-photo-move");
     }
 
     if (width * 2 <= nowpos && nowpos < width * 3) {
@@ -466,11 +496,26 @@ $(function () {
           "page-position_circle_music_move"
         );
       }
+      if ($(".music-content").hasClass("music-content-top")) {
+      } else {
+        $(".music-content").addClass("music-content-top");
+      }
+      if ($(".music-content").hasClass("music-content-bottom")) {
+      } else {
+        $(".music-content").addClass("music-content-bottom");
+      }
+      if ($(".music-container").hasClass("music-container_block")) {
+      } else {
+        $(".music-container").addClass("music-container_block");
+      }
     } else {
       $(".mv-menu_list_text.mv-menu-music").removeClass("colormusic");
       $(".page-position_circle_music").removeClass(
         "page-position_circle_music_move"
       );
+      $(".music-content").removeClass("music-content-top");
+      $(".music-content").removeClass("music-content-bottom");
+      $(".music-container").removeClass("music-container_block");
     }
 
     if (width * 3 <= nowpos && nowpos < width * 4) {
@@ -576,11 +621,20 @@ $(function () {
     $(".loading-anime").css("display", "none");
     $(".loading-anime").css("display", "none");
     $(".mv-menu_list").css("transition", "all 0.1s linear 0.3s");
-    $(".mv-menu_list_box").css("transition", "all 0.9s linear 0s");
+    $(".mv-menu_list_box").css({
+      transition: "all 0.9s 0s",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+    });
     $(".mv-img_text_top").css("transition", "all 0.1s linear 0.2s");
     $(".mv-img_text_bottom").css("transition", "all 0.1s linear 0.2s");
-    $(".mv-img_block_top").css("transition", "all 1s linear 0s");
-    $(".mv-img_block_bottom").css("transition", "all 1s linear 0s");
+    $(".mv-img_block_top").css({
+      transition: "all 0.9s 0s",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+    });
+    $(".mv-img_block_bottom").css({
+      transition: "all 0.9s 0s",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+    });
     $.removeCookie("access");
     // 2回目以降は動かないようにする
   }
@@ -635,4 +689,11 @@ $(function () {
   });
 });
 
-$(function () {});
+$(function () {
+  $(".btn-more").on("click", function () {
+    $(".page-move").addClass("move-action");
+    setTimeout(function () {
+      $(".page-move").removeClass("move-action");
+    }, 2000);
+  });
+});

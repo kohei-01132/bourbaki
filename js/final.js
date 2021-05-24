@@ -25,7 +25,7 @@ function init() {
   renderer.domElement.style.zIndex = 0;
   renderer.setPixelRatio(1);
   //サイズ
-  renderer.setSize(width, height);
+  renderer.setSize(width, height + 20);
 
   // スポットライト光源を作成
   // new THREE.SpotLight(色, 光の強さ, 距離, 照射角, ボケ具合, 減衰率)
@@ -37,7 +37,7 @@ function init() {
 
   const block_width = 8; //■ サイズ
   const circle_radius = 5; //● 半径
-  const circle_segment = 20; //● かくかく
+  const circle_segment = 25; //● かくかく
   const circle_num = circle_nums(); //● 個数
   const block_num = block_nums(); //■ 個数
   const min_speed = -0.2; //動くスピード min
@@ -54,7 +54,7 @@ function init() {
   const rotateZ_max_speed = 0.05;
   const rotateZ_min_speed = -0.05;
   //sub● 個数
-  const circlesub_num = 5;
+  const circlesub_num = 10;
 
   function circle_nums() {
     if (window.innerWidth >= 767) {
@@ -129,7 +129,7 @@ function init() {
   }
 
   //sub円を作成
-  var colorsubcircle = 0xdb5a5a;
+  var colorsubcircle = 0x33dfd6;
   const circlesubMaterial = new THREE.MeshBasicMaterial({
     color: colorsubcircle,
   });
