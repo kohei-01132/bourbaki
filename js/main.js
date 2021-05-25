@@ -1,4 +1,4 @@
-$(window).on("load", function () {
+$(window).on("load", function() {
   //loading後一番上にいること
   var topPosition = $("#top").offset().left;
   $("html,body").animate({ scrollLeft: topPosition }, 10);
@@ -6,7 +6,7 @@ $(window).on("load", function () {
   windowresize();
 
   //ハンバーガーメニューアクション
-  $(".hamMenu").on("click", function () {
+  $(".hamMenu").on("click", function() {
     $(".hamMenu-up,.hamMenu-center,.hamMenu-down").toggleClass("active-line");
     $(".hamMenu-main").toggleClass("active");
     $(".hamMenu-returnbtn,.hamMenu-main_list_text").toggleClass(
@@ -14,7 +14,7 @@ $(window).on("load", function () {
     );
   });
   //ハンバーガーメニュー × アクション
-  $(".hamMenu-returnbtn ,.hamMenu-main_list_text").on("click", function () {
+  $(".hamMenu-returnbtn ,.hamMenu-main_list_text").on("click", function() {
     $(".hamMenu-returnbtn,.hamMenu-main_list_text").toggleClass(
       "active-return"
     );
@@ -23,16 +23,16 @@ $(window).on("load", function () {
   });
 
   //blog category btn
-  $(".blog-article_menu_category").on("click", function () {
+  $(".blog-article_menu_category").on("click", function() {
     $(".blog-article_menu_list").toggleClass("category_btn");
   });
-  $(".blog-article_menu_list").on("click", function () {
+  $(".blog-article_menu_list").on("click", function() {
     $(".blog-article_menu_list").removeClass("category_btn");
   });
-  $(".news-article_menu_category").on("click", function () {
+  $(".news-article_menu_category").on("click", function() {
     $(".news-article_menu_list").toggleClass("category_btn");
   });
-  $(".news-article_menu_list").on("click", function () {
+  $(".news-article_menu_list").on("click", function() {
     $(".news-article_menu_list").removeClass("category_btn");
   });
 });
@@ -63,27 +63,27 @@ var bar = new ProgressBar.Line(splash_text, {
       margin: "-25px 0 0 0",
       transform: "translate(-50%,-50%)",
       "font-size": "12px",
-      color: "#fff",
+      color: "#fff"
     },
-    autoStyleContiner: false, //自動付与のスタイルを切る
+    autoStyleContiner: false //自動付与のスタイルを切る
   },
-  step: function (state, bar) {
+  step: function(state, bar) {
     bar.setText(Math.round(bar.value() * 100) + "%");
-  },
+  }
 });
 
 //loading animation 消す時間
 var deleytime = 8800;
 //8800
 //プログレスバー読み込み完了後アクション
-bar.animate(1.0, function () {
+bar.animate(1.0, function() {
   //水色のペンキを生成
   logobg();
   //棒が飛ぶ
   $(".loadinglogo").removeClass("active");
   $(".loadinglogo-line")
     .delay(300)
-    .queue(function () {
+    .queue(function() {
       $(".loadinglogo-line").addClass("move");
     });
   //白壁が降りてくる
@@ -101,98 +101,98 @@ bar.animate(1.0, function () {
   //インクが塗られる 水色編
   $(".loading-anime_ink_logobg_0")
     .delay(3000)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_1")
     .delay(3200)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_2")
     .delay(3400)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_3")
     .delay(3600)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_4")
     .delay(3800)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_5")
     .delay(3900)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_6")
     .delay(4000)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_7")
     .delay(4100)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_8")
     .delay(4200)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_9")
     .delay(4300)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_10")
     .delay(4400)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   $(".loading-anime_ink_logobg_11")
     .delay(4500)
-    .queue(function () {
+    .queue(function() {
       $(this).css({
         opacity: "1",
-        transform: "scale(1,1)",
+        transform: "scale(1,1)"
       });
     });
   //前面水色
@@ -236,7 +236,9 @@ bar.animate(1.0, function () {
     .delay(deleytime - 200)
     .fadeOut(100);
   //animation フェードアウト
-  $(".loading-anime").delay(deleytime).fadeOut(2000);
+  $(".loading-anime")
+    .delay(deleytime)
+    .fadeOut(2000);
 });
 
 //水色インク生成
@@ -248,7 +250,7 @@ function logobg() {
     var inkImg = $("<img>", {
       src: "./image/bluecube.png",
       alt: "水玉",
-      class: "loading-anime_ink_logobg_" + [i],
+      class: "loading-anime_ink_logobg_" + [i]
     })
       .clone(true)
       .addClass("loading-anime_ink_logobg_set")
@@ -269,7 +271,7 @@ var timeout = 800;
 //skate　を表示
 //music を透明に
 
-$('a[href*="#"]').click(function () {
+$('a[href*="#"]').click(function() {
   //top
   var elmHash = $(this).attr("href"); //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
   var pos = $(elmHash).offset().left; //idの上部の距離を取得
@@ -338,7 +340,7 @@ $('a[href*="#"]').click(function () {
 });
 
 //横スクロール
-$(function () {
+$(function() {
   //コンテンツの横サイズ
   var cont = $(".slider");
   var contW = $(".mv").outerWidth(true) * $("div", cont).length;
@@ -346,7 +348,7 @@ $(function () {
   //スクロールスピード
   var speed = 1;
   //マウスホイールで横移動
-  $("html").mousewheel(function (event, mov) {
+  $("html").mousewheel(function(event, mov) {
     //ie firefox
     $(this).scrollLeft($(this).scrollLeft() - mov * speed);
     //webkit
@@ -356,7 +358,7 @@ $(function () {
 });
 
 //1セクションごとにとまるやつ追加
-$(function () {
+$(function() {
   var toppos = $("#top").offset().left;
   var skatepos = $("#skate").offset().left;
   var musicpos = $("#music").offset().left;
@@ -367,7 +369,7 @@ $(function () {
   var contactpos = $("#contact").offset().left;
   var nextpagestart = width / 6;
   var nowpos;
-  $(window).scroll(function () {
+  $(window).scroll(function() {
     nowpos = $("html,body").scrollLeft();
     console.log(nowpos);
     posmove();
@@ -376,35 +378,65 @@ $(function () {
   //ピタッとつく
   function posmove() {
     if (nextpagestart * 4 <= nowpos && nowpos <= nextpagestart * 5) {
-      $("html,body").not(":animated").animate({ scrollLeft: toppos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: toppos }, 500);
     } else if (nextpagestart <= nowpos && nowpos <= nextpagestart * 2) {
-      $("html,body").not(":animated").animate({ scrollLeft: skatepos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: skatepos }, 500);
     } else if (nextpagestart * 7 <= nowpos && nowpos <= nextpagestart * 8) {
-      $("html,body").not(":animated").animate({ scrollLeft: musicpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: musicpos }, 500);
     } else if (nextpagestart * 10 <= nowpos && nowpos <= nextpagestart * 11) {
-      $("html,body").not(":animated").animate({ scrollLeft: skatepos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: skatepos }, 500);
     } else if (nextpagestart * 13 <= nowpos && nowpos <= nextpagestart * 14) {
-      $("html,body").not(":animated").animate({ scrollLeft: photopos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: photopos }, 500);
     } else if (nextpagestart * 16 <= nowpos && nowpos <= nextpagestart * 17) {
-      $("html,body").not(":animated").animate({ scrollLeft: musicpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: musicpos }, 500);
     } else if (nextpagestart * 19 <= nowpos && nowpos <= nextpagestart * 20) {
-      $("html,body").not(":animated").animate({ scrollLeft: memberpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: memberpos }, 500);
     } else if (nextpagestart * 22 <= nowpos && nowpos <= nextpagestart * 23) {
-      $("html,body").not(":animated").animate({ scrollLeft: photopos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: photopos }, 500);
     } else if (nextpagestart * 25 <= nowpos && nowpos <= nextpagestart * 26) {
-      $("html,body").not(":animated").animate({ scrollLeft: blogpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: blogpos }, 500);
     } else if (nextpagestart * 28 <= nowpos && nowpos <= nextpagestart * 29) {
-      $("html,body").not(":animated").animate({ scrollLeft: memberpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: memberpos }, 500);
     } else if (nextpagestart * 31 <= nowpos && nowpos <= nextpagestart * 32) {
-      $("html,body").not(":animated").animate({ scrollLeft: companypos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: companypos }, 500);
     } else if (nextpagestart * 34 <= nowpos && nowpos <= nextpagestart * 35) {
-      $("html,body").not(":animated").animate({ scrollLeft: blogpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: blogpos }, 500);
     } else if (nextpagestart * 37 <= nowpos && nowpos <= nextpagestart * 38) {
-      $("html,body").not(":animated").animate({ scrollLeft: contactpos }, 500);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: contactpos }, 500);
     } else if (nextpagestart * 40 <= nowpos && nowpos <= nextpagestart * 41) {
-      $("html,body").not(":animated").animate({ scrollLeft: companypos }, 1000);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: companypos }, 1000);
     } else if (nextpagestart * 43 <= nowpos && nowpos <= nextpagestart * 44) {
-      $("html,body").not(":animated").animate({ scrollLeft: toppos }, 1000);
+      $("html,body")
+        .not(":animated")
+        .animate({ scrollLeft: toppos }, 1000);
     }
   }
 
@@ -608,7 +640,7 @@ $(function () {
   }
 });
 
-$(function () {
+$(function() {
   // 1回目のアクセス
   if ($.cookie("access") == undefined) {
     //最初にアクセスしたときにはここに書いたアニメーションのJSが動く
@@ -623,17 +655,17 @@ $(function () {
     $(".mv-menu_list").css("transition", "all 0.1s linear 0.3s");
     $(".mv-menu_list_box").css({
       transition: "all 0.9s 0s",
-      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)"
     });
     $(".mv-img_text_top").css("transition", "all 0.1s linear 0.2s");
     $(".mv-img_text_bottom").css("transition", "all 0.1s linear 0.2s");
     $(".mv-img_block_top").css({
       transition: "all 0.9s 0s",
-      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)"
     });
     $(".mv-img_block_bottom").css({
       transition: "all 0.9s 0s",
-      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)",
+      "transition-timing-function": "cubic-bezier(0.16, 0.66, 0.88, 0.4)"
     });
     $.removeCookie("access");
     // 2回目以降は動かないようにする
@@ -679,21 +711,31 @@ $(function () {
 // showElementAnimation();
 // window.addEventListener("scroll", showElementAnimation);
 
-$(function () {
-  $(".header-contact").click(function () {
-    $(".contact").fadeIn(500).css("display", "flex");
+$(function() {
+  $(".header-contact").click(function() {
+    $(".contact")
+      .fadeIn(500)
+      .css("display", "flex");
     $(".contact-bg").fadeIn(500);
   });
-  $(".contact-bg").click(function () {
+  $(".contact-bg").click(function() {
     $(".contact,.contact-bg").fadeOut(500);
   });
 });
 
-$(function () {
-  $(".btn-more").on("click", function () {
+$(function() {
+  $(".btn-more").on("click", function() {
     $(".page-move").addClass("move-action");
-    setTimeout(function () {
+    setTimeout(function() {
       $(".page-move").removeClass("move-action");
     }, 2000);
+  });
+});
+
+$(function() {
+  $(".opacity-btn").click(function() {
+    $(
+      "#mv-section,#skate,#music,#photo,#member,#blog,#company,.mv-bg"
+    ).toggleClass("allopacity");
   });
 });

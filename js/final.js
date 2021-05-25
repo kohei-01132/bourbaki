@@ -48,8 +48,8 @@ function init() {
   //text 個数
   let text_num = [0, 1, 2, 3, 4, 5, 6, 7];
   //textspeed
-  const max_text_speed = 100;
-  const min_text_speed = -100;
+  // const max_text_speed = 100;
+  // const min_text_speed = -100;
   //■ 回転スピード
   const rotateZ_max_speed = 0.05;
   const rotateZ_min_speed = -0.05;
@@ -131,7 +131,7 @@ function init() {
   //sub円を作成
   var colorsubcircle = 0x33dfd6;
   const circlesubMaterial = new THREE.MeshBasicMaterial({
-    color: colorsubcircle,
+    color: colorsubcircle
   });
 
   let subcircle = [];
@@ -141,9 +141,9 @@ function init() {
   }
 
   var backmap = textureLoader.load("./image/guraduation.jpg");
-  var blackGeometry = new THREE.PlaneGeometry(height * 2, height * 2);
+  var blackGeometry = new THREE.PlaneGeometry(height * 2.5, height * 2.5);
   var blackMaterial = new THREE.MeshBasicMaterial({
-    map: backmap,
+    map: backmap
     // color: 0x111111
   });
   var blackPlane = new THREE.Mesh(blackGeometry, blackMaterial);
@@ -796,7 +796,7 @@ function init() {
       subcircle[s].position.x = subcircle_x[s];
       subcircle[s].position.y = subcircle_y[s];
     }
-    blackPlane.rotation.z += 0.002;
+    blackPlane.rotation.z += 0.001;
   }
 }
 //resize アクション
