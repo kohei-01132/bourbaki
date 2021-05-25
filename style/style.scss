@@ -55,7 +55,8 @@ $fontlinetime: 1.6s;
     left: 50%;
     width: 250px;
     color: #ddd;
-    font-size: 10px;    font-family: "Lexend Giga", sans-serif;
+    font-size: 10px;
+    font-family: "Lexend Giga", sans-serif;
     transform: translateX(-50%);
   }
 }
@@ -987,7 +988,8 @@ $fontlinetime: 1.6s;
   }
   &-type {
     margin-right: 20px;
-    font-family: "Lexend Giga", sans-serif;    font-size: 30px;
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 30px;
     color: #dddddd;
     animation: logotype 5s linear infinite;
     animation-delay: 1s;
@@ -1432,12 +1434,20 @@ $fontlinetime: 1.6s;
   position: relative;
   width: 100vw;
   height: 100%;
-  background-image: url(../image/IMG_9765.jpg);
-  background-size: cover;
-  background-position: right center;
-  animation: mvimg 15s linear infinite;
-  @media screen and (max-width: 767px) {
-    background-position: right -195px center;
+  &-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-image: url(../image/IMG_9765.jpg);
+    background-size: cover;
+    background-position: right center;
+    animation: mvimg 15s linear infinite;
+    transition: all $time ease-out;
+    @media screen and (max-width: 767px) {
+      background-position: right -195px center;
+    }
   }
 
   &-menu {
@@ -3254,8 +3264,8 @@ $legspeed: 0.15s;
 
 .stick-head {
   position: absolute;
-  top: 103px;
-  right: 80px;
+  top: 106px;
+  right: 85px;
   width: 30px;
   height: 30px;
   border: 2px solid #fff;
@@ -3474,4 +3484,26 @@ $legspeed: 0.15s;
   100% {
     transform: translateX(-1200px);
   }
+}
+
+.opacity-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  background-color: #dc3666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  animation: logotype 3s linear infinite;
+}
+.allopacity {
+  opacity: 0;
 }
