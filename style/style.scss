@@ -1928,7 +1928,7 @@ $fontlinetime: 1.6s;
       top: (100% / 3);
       right: 0;
       width: 50%;
-      max-height: (100% / 3);
+      height: (100% / 3);
       transition: all 0.2s linear;
       @media screen and (max-width: 767px) {
         top: 35% + ((65% / 6) * 3);
@@ -1937,14 +1937,20 @@ $fontlinetime: 1.6s;
       }
 
       &-img {
+        background-image: url(../image/IMG_9883.jpeg);
+        background-position: right center;
+        background-size: cover;
         transform: translateY(-110%);
         transition: all 0.3s linear;
         width: 100%;
-        height: auto;
-        margin-top: -195px;
-        @media screen and (max-width: 767px) {
-          margin-top: -105px;
-        }
+        height: 100%;
+        // margin-top: -195px;
+        // @media screen and (max-width: 767px) {
+        //   margin-top: -105px;
+        // }
+        // @media screen and(min-width: 768px) and (max-width: 1300px) {
+        //   margin-top: -15px;
+        // }
       }
       &:hover {
         @media screen and (max-width: 767px) {
@@ -2554,7 +2560,7 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/DSC8110.JPG);
       background-size: cover;
       background-position: center center;
       transition: all 0.2s linear;
@@ -2567,7 +2573,7 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/DSC8120.JPG);
       background-size: cover;
       background-position: center center;
       transition: all 0.5s linear;
@@ -2593,9 +2599,10 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/IMG_4955.JPG);
       background-size: cover;
       background-position: center center;
+
       transition: all 0.5s linear;
       &:hover {
         opacity: 1;
@@ -2606,7 +2613,7 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/IMG_9748.jpeg);
       background-size: cover;
       background-position: center center;
       transition: all 0.5s linear;
@@ -2619,7 +2626,7 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/F0C740E8-BA06-48FB-AF8D-68EC6101C5B6.jpg);
       background-size: cover;
       background-position: center center;
       transition: all 0.5s linear;
@@ -2632,7 +2639,7 @@ $fontlinetime: 1.6s;
       width: (100% / 7);
       height: 100%;
       opacity: 0;
-      background-image: url(../image/IMG_9866.jpeg);
+      background-image: url(../image/IMG_4905.jpg);
       background-size: cover;
       background-position: center center;
       transition: all 0.5s linear;
@@ -3029,7 +3036,7 @@ $fontlinetime: 1.6s;
     &_category {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       width: 80px;
       font-size: 14px;
       color: #eee;

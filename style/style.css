@@ -2907,7 +2907,7 @@
   top: 33.33333%;
   right: 0;
   width: 50%;
-  max-height: 33.33333%;
+  height: 33.33333%;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
@@ -2921,19 +2921,15 @@
 }
 
 .skate-photo4-img {
+  background-image: url(../image/IMG_9883.jpeg);
+  background-position: right center;
+  background-size: cover;
   -webkit-transform: translateY(-110%);
           transform: translateY(-110%);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   width: 100%;
-  height: auto;
-  margin-top: -195px;
-}
-
-@media screen and (max-width: 767px) {
-  .skate-photo4-img {
-    margin-top: -105px;
-  }
+  height: 100%;
 }
 
 @media screen and (max-width: 767px) {
@@ -3820,7 +3816,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/DSC8110.JPG);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.2s linear;
@@ -3836,7 +3832,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/DSC8120.JPG);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.5s linear;
@@ -3868,7 +3864,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/IMG_4955.JPG);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.5s linear;
@@ -3884,7 +3880,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/IMG_9748.jpeg);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.5s linear;
@@ -3900,7 +3896,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/F0C740E8-BA06-48FB-AF8D-68EC6101C5B6.jpg);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.5s linear;
@@ -3916,7 +3912,7 @@
   width: 14.28571%;
   height: 100%;
   opacity: 0;
-  background-image: url(../image/IMG_9866.jpeg);
+  background-image: url(../image/IMG_4905.jpg);
   background-size: cover;
   background-position: center center;
   -webkit-transition: all 0.5s linear;
@@ -4562,9 +4558,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 80px;
   font-size: 14px;
   color: #eee;
